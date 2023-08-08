@@ -37,3 +37,35 @@ kg nodes
 ## clean-up
 tfda
 ```
+
+
+## Installing software with helm
+
+See [Bitnami Charts](https://bitnami.com/stacks/helm) for more helm charts.
+```shell
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update
+helm install my-release-pg  oci://registry-1.docker.io/bitnamicharts/postgresql
+helm install my-release-ec oci://registry-1.docker.io/bitnamicharts/redis
+helm install my-release-es oci://registry-1.docker.io/bitnamicharts/elasticsearch
+```
+
+## Output
+```shell
+$> kg pods
++ kubectl get pods
+NAME                                                     READY   STATUS    RESTARTS   AGE
+my-release-es-elasticsearch-coordinating-0   1/1     Running   0          10m
+my-release-es-elasticsearch-coordinating-1   1/1     Running   0          10m
+my-release-es-elasticsearch-data-0           1/1     Running   0          10m
+my-release-es-elasticsearch-data-1           1/1     Running   0          10m
+my-release-es-elasticsearch-ingest-0         1/1     Running   0          10m
+my-release-es-elasticsearch-ingest-1         1/1     Running   0          10m
+my-release-es-elasticsearch-master-0         1/1     Running   0          10m
+my-release-es-elasticsearch-master-1         1/1     Running   0          10m
+my-release-ec-redis-master-0                 1/1     Running   0          13m
+my-release-ec-redis-replicas-0               1/1     Running   0          13m
+my-release-ec-redis-replicas-1               1/1     Running   0          12m
+my-release-ec-redis-replicas-2               1/1     Running   0          11m
+my-release-pg-0                              1/1     Running   0          20m
+```
