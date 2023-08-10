@@ -19,7 +19,7 @@ brew install azure-cli
 ## install aks kubernetes client
 sudo az aks install-cli
 ## login to azure cli
-az login
+az login --use-device-code
 ## obtain this repo
 git clone https://github.com/amitgupta7/azure-terraform-aks.git
 cd azure-terraform-aks
