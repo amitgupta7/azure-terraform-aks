@@ -46,3 +46,10 @@ resource "null_resource" "post_provisioning" {
     command = "az aks get-credentials --resource-group ${var.az_resource_group} --name ${azurerm_kubernetes_cluster.aks.name} --overwrite-existing"
   }
 }
+
+resource "null_resource" "setup_datastores" {
+  depends_on = [null_resource.post_provisioning]
+  provisioner "local-exec" {
+    command = "sh local-init.sh"
+  }
+}

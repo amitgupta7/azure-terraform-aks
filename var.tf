@@ -32,6 +32,6 @@ variable "max_node_count" {
 }
 
 variable "kubernetes_version" {
-  default     = "1.24.10"
+  default     = "1.25.6"
   description = "Kubernetes version"
 }
